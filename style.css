@@ -982,3 +982,63 @@ body {
     font-size: 0.85rem;
   }
 }
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 26px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 200;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--accent-green);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 860px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    background: rgba(20, 25, 20, 0.97);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    height: calc(100vh - 70px);
+    gap: 2rem;
+    padding-top: 2rem;
+    transition: right 0.4s ease;
+    border-left: 1px solid rgba(74, 157, 111, 0.3);
+  }
+  .nav-links.show {
+    right: 0;
+  }
+  .nav-link {
+    font-size: 1.1rem;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .btn-resume {
+    display: none;
+  }
+}
+

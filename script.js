@@ -58,13 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
   resumeButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault()
+      // Replace with your actual resume file path
       const link = document.createElement("a")
-      link.href = "./cv.pdf"
+      link.href = "path/to/your/resume.pdf"
       link.download = "Bilal_Ahmad_Resume.pdf"
-      link.style.display = "none"
-      document.body.appendChild(link)
       link.click()
-      document.body.removeChild(link)
     })
   })
 
@@ -138,3 +136,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 })
+// HAMBURGER MENU TOGGLE
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("show");
+});
+
+// Close menu when clicking a link
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("show");
+  });
+});
+
