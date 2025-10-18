@@ -54,17 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  const resumeButtons = document.querySelectorAll("#resumeBtn, #resumeBtn2")
-  resumeButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault()
-      // Replace with your actual resume file path
-      const link = document.createElement("a")
-      link.href = "path/to/your/resume.pdf"
-      link.download = "Bilal_Ahmad_Resume.pdf"
-      link.click()
-    })
-  })
+ const resumeButtons = document.querySelectorAll("#resumeBtn, #resumeBtn2, #resumeBtn3");
+resumeButtons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const link = document.createElement("a");
+    link.href = "cv.pdf"; // make sure file name matches exactly
+    link.download = "Bilal_Ahmad_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+});
+
 
   // Contact form submission
   const form = document.getElementById("contactForm")
