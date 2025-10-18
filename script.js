@@ -82,59 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 5000)
     })
   }
-
-  const skillSections = document.querySelectorAll(".skill-section")
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.animation = "slideInUp 0.6s ease-out forwards"
-        observer.unobserve(entry.target)
-      }
-    })
-  }, observerOptions)
-
-  skillSections.forEach((section, index) => {
-    section.style.opacity = "0"
-    observer.observe(section)
-  })
-
-  window.openModal = (src, alt) => {
-    const modal = document.getElementById("imageModal")
-    const modalImg = document.getElementById("modalImage")
-    const captionText = document.getElementById("modalCaption")
-    modal.style.display = "block"
-    modalImg.src = src
-    captionText.innerHTML = alt
-    document.body.style.overflow = "hidden"
-  }
-
-  window.closeModal = () => {
-    const modal = document.getElementById("imageModal")
-    modal.style.display = "none"
-    document.body.style.overflow = "auto"
-  }
-
-  // Close modal when clicking outside the image
-  const modal = document.getElementById("imageModal")
-  if (modal) {
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        window.closeModal()
-      }
-    })
-  }
-
-  // Close modal with Escape key
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      window.closeModal()
-    }
-  })
 })
 // HAMBURGER MENU TOGGLE
 const hamburger = document.getElementById("hamburger");
@@ -152,4 +99,3 @@ document.querySelectorAll(".nav-link").forEach(link => {
     navMenu.classList.remove("show");
   });
 });
-
